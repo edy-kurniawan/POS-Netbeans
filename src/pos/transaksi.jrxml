@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="transaksi" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d2afe288-7078-4435-a058-2bfe887cc445">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     transaksi.`Kode_Transaksi` AS transaksi_Kode_Transaksi,
+     transaksi.`Kode_Detail` AS transaksi_Kode_Detail,
+     transaksi.`Tanggal` AS transaksi_Tanggal,
+     transaksi.`Jam` AS transaksi_Jam,
+     transaksi.`Total` AS transaksi_Total
+FROM
+     `transaksi` transaksi]]>
+	</queryString>
+	<field name="transaksi_Kode_Transaksi" class="java.lang.String"/>
+	<field name="transaksi_Kode_Detail" class="java.lang.String"/>
+	<field name="transaksi_Tanggal" class="java.sql.Date"/>
+	<field name="transaksi_Jam" class="java.sql.Time"/>
+	<field name="transaksi_Total" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="32" width="555" height="20" uuid="2a4c3aa4-9f36-4b5c-8e01-0b46a2c760cc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Book Antiqua" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Transaksi]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="465" y="14" width="100" height="20" uuid="783e3896-4d20-4100-9a9e-8d29e90edc5f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="162" y="20" width="247" height="1" uuid="b5cff640-e5f0-408c-a1ef-7518447fb57e"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="53" height="20" uuid="3c535089-a46c-4ac8-a0db-eca5b6c13b1b"/>
+				<textElement>
+					<font fontName="Book Antiqua" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="10" width="53" height="20" uuid="7343d7e3-26ec-46d4-b723-117522504d47"/>
+				<textElement>
+					<font fontName="Book Antiqua" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kode Detail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="10" width="53" height="20" uuid="b2489676-2d4f-4f82-a693-a72c744aeb3e"/>
+				<textElement>
+					<font fontName="Book Antiqua" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="10" width="53" height="20" uuid="da281be2-1d1b-48c3-b99f-1684fd14416a"/>
+				<textElement>
+					<font fontName="Book Antiqua" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="182" y="10" width="53" height="20" uuid="cf424ff6-4a44-4ba7-9e7e-d1313d238a93"/>
+				<textElement>
+					<font fontName="Book Antiqua" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tgl]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="10" width="100" height="20" uuid="91e96ac1-655d-4d1e-a4d4-4d8a4f867a24"/>
+				<textFieldExpression><![CDATA[$F{transaksi_Kode_Transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="99" y="10" width="100" height="20" uuid="d469bb6a-d63b-4697-b022-a5fd84b32215"/>
+				<textFieldExpression><![CDATA[$F{transaksi_Kode_Detail}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="10" width="100" height="20" uuid="40180d4c-0ae5-47b6-8ab2-de5fd2356efa"/>
+				<textFieldExpression><![CDATA[$F{transaksi_Tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="10" width="100" height="20" uuid="643c1073-8bfa-4493-9d4c-20459a8238a6"/>
+				<textFieldExpression><![CDATA[$F{transaksi_Jam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="10" width="100" height="20" uuid="bc87ec35-1d3e-4bbc-9d18-cb309f59991d"/>
+				<textFieldExpression><![CDATA[$F{transaksi_Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="512" y="0" width="40" height="20" uuid="598e84f6-ee92-4417-994d-89d4e25f8b8a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="0" width="80" height="20" uuid="70852a57-2d1d-40c1-add5-b3ace5343669"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
